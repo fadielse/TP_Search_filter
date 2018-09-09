@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: 472ef1f46caeb63ad4cf8c15c2e1e362fa09a3f5
+PODS:
+  - ESPullToRefresh (2.7)
+  - WARangeSlider (1.1.1)
+
+DEPENDENCIES:
+  - ESPullToRefresh
+  - WARangeSlider
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ESPullToRefresh
+    - WARangeSlider
+
+SPEC CHECKSUMS:
+  ESPullToRefresh: 119e2710b82b75536aab2bbe4883ba119fca35c8
+  WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
+
+PODFILE CHECKSUM: 05f265a398aad8ebde931d9b7899e52d77cbdd61
 
 COCOAPODS: 1.5.3

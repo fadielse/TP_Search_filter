@@ -25,6 +25,14 @@
 		FF71862B214589B8009BB409 /* ShopTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF718629214589B8009BB409 /* ShopTagCollectionViewCell.swift */; };
 		FF71862C214589B8009BB409 /* ShopTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71862A214589B8009BB409 /* ShopTagCollectionViewCell.xib */; };
 		FF71862E21458F1A009BB409 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF71862D21458F1A009BB409 /* ProductCollectionViewCell.swift */; };
+		FF8B0DBE2146260B0097194F /* GlobalMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B0DB42146260A0097194F /* GlobalMethod.swift */; };
+		FF8B0DBF2146260B0097194F /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B0DB52146260A0097194F /* GlobalVariable.swift */; };
+		FF8B0DC02146260B0097194F /* SingleDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B0DB82146260B0097194F /* SingleDataResponse.swift */; };
+		FF8B0DC12146260B0097194F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B0DB92146260B0097194F /* Response.swift */; };
+		FF8B0DC22146260B0097194F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B0DBA2146260B0097194F /* Request.swift */; };
+		FF8B0DC42146260B0097194F /* ProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B0DBD2146260B0097194F /* ProductRequest.swift */; };
+		FF8B0DC6214626E40097194F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B0DC5214626E40097194F /* Product.swift */; };
+		FF8B0DC821462C860097194F /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B0DC721462C860097194F /* Products.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +71,14 @@
 		FF718629214589B8009BB409 /* ShopTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF71862A214589B8009BB409 /* ShopTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		FF71862D21458F1A009BB409 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF8B0DB42146260A0097194F /* GlobalMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMethod.swift; sourceTree = "<group>"; };
+		FF8B0DB52146260A0097194F /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
+		FF8B0DB82146260B0097194F /* SingleDataResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDataResponse.swift; sourceTree = "<group>"; };
+		FF8B0DB92146260B0097194F /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		FF8B0DBA2146260B0097194F /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FF8B0DBD2146260B0097194F /* ProductRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRequest.swift; sourceTree = "<group>"; };
+		FF8B0DC5214626E40097194F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FF8B0DC721462C860097194F /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +141,8 @@
 		FF20D6AA21438D670004998B /* TP_Search_filter */ = {
 			isa = PBXGroup;
 			children = (
-				FF46442F214562210071886D /* Utility */,
+				FF8B0DB62146260B0097194F /* Network Abstraction */,
+				FF8B0DB32146260A0097194F /* Utility */,
 				FF46442E214562190071886D /* View */,
 				FF46442D214562130071886D /* Model */,
 				FF46442C2145620A0071886D /* Controller */,
@@ -158,6 +175,8 @@
 		FF46442D214562130071886D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FF8B0DC5214626E40097194F /* Product.swift */,
+				FF8B0DC721462C860097194F /* Products.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,11 +199,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		FF46442F214562210071886D /* Utility */ = {
+		FF8B0DB32146260A0097194F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				FF8B0DB42146260A0097194F /* GlobalMethod.swift */,
+				FF8B0DB52146260A0097194F /* GlobalVariable.swift */,
 			);
-			path = Utility;
+			name = Utility;
+			path = "../../../BLANJA_COM/Real Weather/Real Weather/Utility";
+			sourceTree = "<group>";
+		};
+		FF8B0DB62146260B0097194F /* Network Abstraction */ = {
+			isa = PBXGroup;
+			children = (
+				FF8B0DB72146260B0097194F /* Response */,
+				FF8B0DB92146260B0097194F /* Response.swift */,
+				FF8B0DBA2146260B0097194F /* Request.swift */,
+				FF8B0DBB2146260B0097194F /* Request */,
+			);
+			path = "Network Abstraction";
+			sourceTree = "<group>";
+		};
+		FF8B0DB72146260B0097194F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FF8B0DB82146260B0097194F /* SingleDataResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		FF8B0DBB2146260B0097194F /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FF8B0DBD2146260B0097194F /* ProductRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,13 +346,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TP_Search_filter/Pods-TP_Search_filter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/WARangeSlider/WARangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/KRPullLoader/KRPullLoader.framework",
+				"${BUILT_PRODUCTS_DIR}/RangeUISlider/RangeUISlider.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPullToRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WARangeSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRPullLoader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RangeUISlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -335,14 +390,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8B0DC42146260B0097194F /* ProductRequest.swift in Sources */,
 				FF46443A214562CA0071886D /* FilterShopTableViewCell.swift in Sources */,
 				FF464433214562800071886D /* FilterViewController.swift in Sources */,
 				FF71862B214589B8009BB409 /* ShopTagCollectionViewCell.swift in Sources */,
 				FF464436214562B40071886D /* FilterPriceTableViewCell.swift in Sources */,
 				FF46444121456C660071886D /* ShopTypeViewController.swift in Sources */,
+				FF8B0DC821462C860097194F /* Products.swift in Sources */,
+				FF8B0DBE2146260B0097194F /* GlobalMethod.swift in Sources */,
+				FF8B0DC12146260B0097194F /* Response.swift in Sources */,
+				FF8B0DC02146260B0097194F /* SingleDataResponse.swift in Sources */,
+				FF8B0DC6214626E40097194F /* Product.swift in Sources */,
 				FF46443E214562EB0071886D /* FilterShopListTableViewCell.swift in Sources */,
 				FF464431214562710071886D /* ProductViewController.swift in Sources */,
 				FF71862E21458F1A009BB409 /* ProductCollectionViewCell.swift in Sources */,
+				FF8B0DC22146260B0097194F /* Request.swift in Sources */,
+				FF8B0DBF2146260B0097194F /* GlobalVariable.swift in Sources */,
 				FF20D6AC21438D670004998B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

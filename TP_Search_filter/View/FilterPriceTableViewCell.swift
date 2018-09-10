@@ -7,15 +7,134 @@
 //
 
 import UIKit
-import WARangeSlider
+import RangeUISlider
 
 class FilterPriceTableViewCell: UITableViewCell {
-    @IBOutlet weak var minPriceLabel: UILabel!
-    @IBOutlet weak var maxPriceLabel: UILabel!
+    @IBOutlet weak var minPriceTextField: UITextField!
+    @IBOutlet weak var maxPriceTextField: UITextField!
     @IBOutlet weak var wholeSaleSwitch: UISwitch!
+    @IBOutlet weak var priceSlider: RangeUISlider!
     
-    func configureCell() {
+    var pmin: String = ""
+    var pmax: String = ""
+    var wholeSale: Bool = false
+    
+    func configureCell(pmin: String, pmax: String, wholeSale: Bool) {
         self.selectionStyle = .none
+        
+        self.pmin = pmin
+        self.pmax = pmax
+        self.wholeSale = wholeSale
+        
+        setupSubviews()
+    }
+}
+
+// MARK: - Setup
+extension FilterPriceTableViewCell {
+    func setupSubviews() {
+        setupMinPrice()
+        setupMaxPrice()
+        setupPriceSlider()
     }
     
+    func setupPriceSlider() {
+        priceSlider.delegate = self
+        priceSlider.scaleMinValue = 100
+        priceSlider.scaleMaxValue = 10000000
+        priceSlider.defaultValueLeftKnob = CGFloat(Int(pmin)!)
+        priceSlider.defaultValueRightKnob = CGFloat(Int(pmax)!)
+        priceSlider.layoutSubviews()
+    }
+    
+    func setupMinPrice() {
+        minPriceTextField.delegate = self
+        minPriceTextField.addTarget(self, action: #selector(textFieldDidChangeValue(_:)), for: .editingChanged)
+        minPriceTextField.tag = 0
+        minPriceTextField.text = "Rp " + GlobalMethod.formatCurrency(money: "\(pmin)", digitBeforeZero: 0)
+    }
+    
+    func setupMaxPrice() {
+        maxPriceTextField.delegate = self
+        minPriceTextField.addTarget(self, action: #selector(textFieldDidChangeValue(_:)), for: .editingChanged)
+        maxPriceTextField.tag = 1
+        maxPriceTextField.text = "Rp " + GlobalMethod.formatCurrency(money: "\(pmax)", digitBeforeZero: 0)
+    }
+    
+    func setupWholeSale() {
+        wholeSaleSwitch.isOn = wholeSale
+    }
+}
+
+// MARK: - TextField Delegate
+extension FilterPriceTableViewCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+        
+        switch textField.tag {
+        case 0:
+            textField.text = pmin
+        case 1:
+            textField.text = pmax
+        default:
+            print("unknown textfield")
+        }
+    }
+    
+    @objc func textFieldDidChangeValue(_ textField: UITextField) {
+        if textField.text! != "" {
+            textField.text = GlobalMethod.formatCurrency(money: textField.text!, digitBeforeZero: 0)
+        } else {
+            textField.text = "0"
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let value = textField.text!.replacingOccurrences(of: ".", with: "")
+        textField.text = value == "" ? "0" : value
+        
+        switch textField.tag {
+        case 0:
+            if Int(value)! > Int(pmax)! {
+                setupMinPrice()
+                
+                return
+            }
+            
+            pmin = value
+            setupMinPrice()
+            setupPriceSlider()
+        case 1:
+            if Int(value)! > Int(pmax)! {
+                setupMaxPrice()
+                
+                return
+            }
+            
+            pmax = value
+            setupMaxPrice()
+            setupPriceSlider()
+        default:
+            print("unknown textfield")
+        }
+    }
+}
+
+// MARK: - Slider Delegate
+extension FilterPriceTableViewCell: RangeUISliderDelegate {
+    func rangeIsChanging(minValueSelected: CGFloat, maxValueSelected: CGFloat, slider: RangeUISlider) {
+        pmin = "\(Int(minValueSelected.rounded(.up)))"
+        pmax = "\(Int(maxValueSelected.rounded(.up)))"
+        
+        setupMinPrice()
+        setupMaxPrice()
+    }
+    
+    func rangeChangeFinished(minValueSelected: CGFloat, maxValueSelected: CGFloat, slider: RangeUISlider) {
+        pmin = "\(Int(minValueSelected.rounded(.up)))"
+        pmax = "\(Int(maxValueSelected.rounded(.up)))"
+        
+        setupMinPrice()
+        setupMaxPrice()
+    }
 }

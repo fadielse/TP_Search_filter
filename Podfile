@@ -5,7 +5,10 @@ target 'TP_Search_filter' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'WARangeSlider'
-  pod 'ESPullToRefresh'
+  pod 'Alamofire'
+  pod 'IQKeyboardManagerSwift', '5.0.0'
+  pod 'RangeUISlider', '~> 1.5'
+  pod 'SDWebImage', '~> 4.0'
+  pod 'KRPullLoader'
 
 end

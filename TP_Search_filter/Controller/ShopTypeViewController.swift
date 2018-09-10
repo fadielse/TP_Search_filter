@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopTypeViewController: UIViewController {
+final class ShopTypeViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!

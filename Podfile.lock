@@ -1,20 +1,34 @@
 PODS:
-  - ESPullToRefresh (2.7)
-  - WARangeSlider (1.1.1)
+  - Alamofire (4.7.3)
+  - IQKeyboardManagerSwift (5.0.0)
+  - KRPullLoader (1.1.3)
+  - RangeUISlider (1.6.0)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
-  - ESPullToRefresh
-  - WARangeSlider
+  - Alamofire
+  - IQKeyboardManagerSwift (= 5.0.0)
+  - KRPullLoader
+  - RangeUISlider (~> 1.5)
+  - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - ESPullToRefresh
-    - WARangeSlider
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - KRPullLoader
+    - RangeUISlider
+    - SDWebImage
 
 SPEC CHECKSUMS:
-  ESPullToRefresh: 119e2710b82b75536aab2bbe4883ba119fca35c8
-  WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
+  KRPullLoader: b45266f518ba8affa572141b335d5d30425b58c0
+  RangeUISlider: 1ceed6bff3285256dde7845262f3b574cc7c8a6d
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 05f265a398aad8ebde931d9b7899e52d77cbdd61
+PODFILE CHECKSUM: 4b9c00d6e76477774eb5de3dcfcb25657c86830f
 
 COCOAPODS: 1.5.3

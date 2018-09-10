@@ -9,6 +9,10 @@
 import UIKit
 import RangeUISlider
 
+protocol FilterPriceDelegate {
+    func priceCellValueChanged(pmin: String, pmax: String, wholeSale: Bool)
+}
+
 class FilterPriceTableViewCell: UITableViewCell {
     @IBOutlet weak var minPriceTextField: UITextField!
     @IBOutlet weak var maxPriceTextField: UITextField!
@@ -18,6 +22,7 @@ class FilterPriceTableViewCell: UITableViewCell {
     var pmin: String = ""
     var pmax: String = ""
     var wholeSale: Bool = false
+    var delegate: FilterPriceDelegate?
     
     func configureCell(pmin: String, pmax: String, wholeSale: Bool) {
         self.selectionStyle = .none
@@ -36,6 +41,7 @@ extension FilterPriceTableViewCell {
         setupMinPrice()
         setupMaxPrice()
         setupPriceSlider()
+        setupWholeSaleSwitch()
     }
     
     func setupPriceSlider() {
@@ -61,8 +67,18 @@ extension FilterPriceTableViewCell {
         maxPriceTextField.text = "Rp " + GlobalMethod.formatCurrency(money: "\(pmax)", digitBeforeZero: 0)
     }
     
-    func setupWholeSale() {
+    func setupWholeSaleSwitch() {
         wholeSaleSwitch.isOn = wholeSale
+        wholeSaleSwitch.addTarget(self, action: #selector(wholeSaleChanged(_:)), for: .valueChanged)
+    }
+}
+
+// MARK: - Action
+extension FilterPriceTableViewCell {
+    @objc func wholeSaleChanged(_ wholeSaleSwitch: UISwitch) {
+        wholeSale = wholeSaleSwitch.isOn
+        
+        self.delegate?.priceCellValueChanged(pmin: pmin, pmax: pmax, wholeSale: wholeSale)
     }
 }
 
@@ -117,6 +133,8 @@ extension FilterPriceTableViewCell: UITextFieldDelegate {
         default:
             print("unknown textfield")
         }
+        
+        self.delegate?.priceCellValueChanged(pmin: pmin, pmax: pmax, wholeSale: wholeSale)
     }
 }
 
@@ -136,5 +154,7 @@ extension FilterPriceTableViewCell: RangeUISliderDelegate {
         
         setupMinPrice()
         setupMaxPrice()
+        
+        self.delegate?.priceCellValueChanged(pmin: pmin, pmax: pmax, wholeSale: wholeSale)
     }
 }

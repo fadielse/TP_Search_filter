@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-H9-dhN">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-H9-dhN">
                         <rect key="frame" x="10" y="11" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="4ts-Br-WHw"/>
@@ -32,16 +32,35 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODX-V0-4ww">
+                        <rect key="frame" x="40" y="42.5" width="280" height="1"/>
+                        <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="CDI-0n-1Uo"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="H9M-il-9i5" firstAttribute="leading" secondItem="pBI-H9-dhN" secondAttribute="trailing" constant="10" id="EnE-A1-dsu"/>
+                    <constraint firstItem="ODX-V0-4ww" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="Kbn-5e-oEz"/>
                     <constraint firstItem="pBI-H9-dhN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ObD-3t-s9o"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="H9M-il-9i5" secondAttribute="trailing" constant="10" id="VJZ-2u-wsD"/>
+                    <constraint firstAttribute="bottom" secondItem="ODX-V0-4ww" secondAttribute="bottom" id="fc0-lV-206"/>
                     <constraint firstItem="pBI-H9-dhN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kRy-hC-uID"/>
+                    <constraint firstAttribute="trailing" secondItem="ODX-V0-4ww" secondAttribute="trailing" id="uXp-yF-HeF"/>
                     <constraint firstItem="H9M-il-9i5" firstAttribute="centerY" secondItem="pBI-H9-dhN" secondAttribute="centerY" id="yNc-vX-oUa"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bottomLineLeading" destination="Kbn-5e-oEz" id="hCO-uK-r5h"/>
+                <outlet property="checkImage" destination="pBI-H9-dhN" id="3yJ-b1-6Uh"/>
+                <outlet property="nameLabel" destination="H9M-il-9i5" id="scB-xt-YOv"/>
+            </connections>
+            <point key="canvasLocation" x="-292" y="-181"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="check_icon" width="205" height="204"/>
+    </resources>
 </document>

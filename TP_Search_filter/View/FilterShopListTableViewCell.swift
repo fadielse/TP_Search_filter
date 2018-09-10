@@ -8,17 +8,58 @@
 
 import UIKit
 
+protocol shopListDelegate {
+    func applyShopList(shopList: [ShopType])
+}
+
 class FilterShopListTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var checkImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var bottomLineLeading: NSLayoutConstraint!
+    
+    var type: ShopType!
+    var rowSelected: Bool = true
+    var indexPath: IndexPath!
+    var delegate: shopListDelegate?
+    
+    func configureCell(type: ShopType, rowSelected: Bool, indexpath: IndexPath) {
+        self.selectionStyle = .none
+        
+        self.type = type
+        self.rowSelected = rowSelected
+        self.indexPath = indexpath
+        
+        setupSubviews()
     }
     
+    override func layoutSubviews() {
+        layoutingSubviews()
+    }
+}
+
+// MARK: - Layout
+extension FilterShopListTableViewCell {
+    func layoutingSubviews() {
+    }
+}
+
+// MARK: - Setup
+extension FilterShopListTableViewCell {
+    func setupSubviews() {
+        setupNameLabel()
+        setupBottomLine()
+        setupCheckImage()
+    }
+    
+    func setupNameLabel() {
+        nameLabel.text = type.rawValue
+    }
+    
+    func setupBottomLine() {
+        bottomLineLeading.constant = self.indexPath.row == 1 ? 0 : 40
+    }
+    
+    func setupCheckImage() {
+        checkImage.image = rowSelected ? #imageLiteral(resourceName: "check_icon") : #imageLiteral(resourceName: "uncheck_icon")
+    }
 }
